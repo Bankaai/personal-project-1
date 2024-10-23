@@ -55,9 +55,10 @@ const ValidateSignup = (req, res, next) => {
     return res.status(400).json({
       status: "error",
       message: "Validation failed",
+      // result.error.errors is an array
       errors: result.error.errors.map(err => ({
         
-        // what is the field syntax?
+       // seperate error objects
         field: err.path[0], 
         message: err.message 
       }))
