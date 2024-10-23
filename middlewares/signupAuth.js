@@ -25,7 +25,7 @@ const signupSchema = z.object({
 });
 
 // Middleware for Signup Validation
-const ValidateSignup = (req, res, next) => {
+function validateSignup  (req, res, next)  {
 
   const { username, email, password} = req.body;
 
@@ -68,5 +68,6 @@ const ValidateSignup = (req, res, next) => {
   next();  // Proceed to the next middleware or route handler
 };
 
-module.exports = { ValidateSignup } ;
-
+module.exports= {
+  validateSignup
+}

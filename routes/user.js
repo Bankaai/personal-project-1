@@ -5,13 +5,13 @@ const router = express.Router();
 const z = require('zod');
 const jwt = require('jsonwebtoken');
 const { User } = require("../db");
-const  {ValidateSignup}  = require("../middlewares/signupAuth");
+const{ validateSignup} = require("../middlewares/signupAuth");
 
 require('dotenv').config();
 const jwt_secret = process.env.JWT_SECRET;
 
 // SIGNUP ROUTE
-router.post("/signup", ValidateSignup, async (req, res) => {
+router.post("/signup", validateSignup, async (req, res) => {
     const { username, email, password } = req.body; 
 
     const { success, error } = signupSchema.safeParse(req.body);  
